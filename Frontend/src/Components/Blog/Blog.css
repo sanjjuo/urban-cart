@@ -1,0 +1,251 @@
+.blog-section {
+    padding: 50px 0;
+}
+
+.blog-section .heading-with-image {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../../../public/images/blog.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.blog-section .heading-with-image h1 {
+    font-weight: 800;
+    margin: 0;
+}
+
+.blog-section .blogs {
+    padding: 50px 0;
+}
+
+.blogs .blog {
+    margin-bottom: 20px;
+}
+
+.blogs .blog .image {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    transform: scale(1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.blogs .blog .image:hover img {
+    transform: scale(1.1);
+}
+
+.blogs .blog .image p {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    font-size: 25px;
+    font-weight: 800;
+    padding: 10px;
+    max-width: 120px;
+    text-align: center;
+    margin: 0;
+}
+
+.blogs .blog .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.blogs .blog .image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.401), rgba(0, 0, 0, 0.423));
+    opacity: 1;
+    z-index: 1;
+}
+
+.blogs .blog .details {
+    margin-top: 30px;
+}
+
+.blogs .blog .details h3 {
+    text-transform: capitalize;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.blogs .blog .details h3:hover {
+    color: #717fe0;
+}
+
+.blogs .blog .details p {
+    color: #999999;
+    font-weight: 300;
+    cursor: default;
+    text-align: justify;
+}
+
+/* col-md-3 */
+.blog-section .blogs .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ededed;
+    padding: 20px;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.blog-section .blogs .search-bar input {
+    background-color: transparent;
+    border: none;
+    color: #999999;
+}
+
+.blog-section .blogs .search-bar input:focus {
+    outline: none;
+}
+
+.blog-section .blogs .search-bar input::placeholder {
+    color: #999999;
+}
+
+/* categories */
+
+.blog-section .blogs .categories {
+    margin-top: 50px;
+}
+
+.blog-section .blogs .categories h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.blog-section .blogs .categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+}
+
+.blog-section .blogs .categories li {
+    border-bottom: 1px solid #ededed;
+    color: #999999;
+    cursor: pointer;
+}
+
+.blog-section .blogs .categories li:hover {
+    color: #717fe0;
+}
+
+/* featured-products */
+
+.blog-section .blogs .featured-products {
+    margin-top: 50px;
+}
+
+.blog-section .blogs .featured-products .contents {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.blog-section .blogs .featured-products h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.blog-section .blogs .featured-products .image {
+    width: 110px;
+    height: 110px;
+}
+
+.featured-products .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-products .details h6 {
+    text-transform: capitalize;
+    color: #333;
+    font-weight: 400;
+    max-width: 170px;
+}
+
+.featured-products .details p {
+    color: #999999;
+    font-weight: 700;
+}
+
+
+/* tags */
+
+.blog-section .blogs .tags {
+    margin-top: 50px;
+}
+
+.blog-section .blogs .tags h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.blog-section .blogs .tags ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-section .blogs .tags li {
+    border: 1px solid #999999;
+    color: #999999;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.blog-section .blogs .tags li:hover {
+    background-color: #717fe0;
+    border-color: #717fe0;
+    color: #fff;
+}
+
+@media (min-width:320px) and (max-width:480px){
+    .blogs .blog .image p {
+        position: absolute;
+        top: 10px;
+        left: 28%;
+        font-size: 15px;
+        font-weight: 800;
+        padding: 0px;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .blogs .blog .details h3 {
+        font-size: 20px;
+    }
+    .blogs .blog .details p {
+        font-size: 14px;
+    }
+}

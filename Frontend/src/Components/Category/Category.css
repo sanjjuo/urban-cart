@@ -1,0 +1,68 @@
+.category-section{
+    padding: 50px 0;
+}
+.category-section .category-card{
+    position: relative;
+    border: 1px solid #ededed;
+    cursor: pointer;
+}
+.category-section .category-card img{
+    width: 100%;
+    object-fit: contain;
+}
+.category-section .category-card .content{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+.category-card .content h4{
+    font-weight: 800;
+    color: #333;
+}
+.category-card .content p{
+    font-size: 15px;
+    color: #777;
+}
+.category-section .category-card .shop-now-hover{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(103, 117, 214, 0.8);
+    transition: 0.6s;
+    opacity: 0;
+}
+.category-section .category-card:hover .shop-now-hover{
+    opacity: 1;
+}
+.category-section .category-card .shop-now-hover a{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 3px solid #fff;
+    transform: translateY(150%);
+    transition: transform 0.6s ease;
+}
+.category-section .category-card .shop-now-hover a:hover{
+    color: #000;
+    border-bottom: 3px solid #000;
+}
+.category-card:hover .shop-now-hover a{
+    transform: translateY(0);
+}
+
+
+@media (min-width: 320px) and (max-width: 480px){
+    .category-section{
+        padding-bottom: 0;
+    }
+    .category-section .category-card {
+        margin-bottom: 20px;
+    }
+}
