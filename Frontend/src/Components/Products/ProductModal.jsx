@@ -48,9 +48,28 @@ const ProductModal = (props) => {
                                     <Button>Add to Cart<RiShoppingCartFill /></Button>
                                 </div>
                                 <div className="favourite">
-                                    <AiOutlineHeart size={30}/>
+                                    <AiOutlineHeart size={30} />
                                 </div>
                             </div>
+
+                            {/* mobile-quantitybtn-icons */}
+
+                            <div className="mobile-quantitybtn-icons">
+                                <div className="quantity-btns-favourite">
+                                    <div className="quantity-btns">
+                                        <span><BsArrowLeftSquare /></span>
+                                        <span>0</span>
+                                        <span><BsArrowRightSquare /></span>
+                                    </div>
+                                    <div className="favourite">
+                                        <AiOutlineHeart size={30} />
+                                    </div>
+                                </div>
+                                <div className="cart-btn">
+                                    <Button>Add to Cart<RiShoppingCartFill /></Button>
+                                </div>
+                            </div>
+
                             <div className="social-media-icons">
                                 <ul>
                                     <li><FaFacebookSquare /></li>

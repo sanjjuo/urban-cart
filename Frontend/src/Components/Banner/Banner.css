@@ -23,9 +23,11 @@
     font-size: 75px;
     font-family: "Fascinate Inline", system-ui;
     color: #333;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 1.2);
 }
 .banner .contents button{
     background-color: #717fe0;
+    color: #fff;
     cursor: pointer;
     border: none;
     padding: 10px 30px;
@@ -42,6 +44,11 @@
         object-fit: cover;
         width: 100%;
         height: 500px;
+    }
+    .banner-section .banner .contents{
+        position: absolute;
+        top: 40%;
+        left: 7%;
     }
     .banner .contents h3 {
         font-size: 15px;

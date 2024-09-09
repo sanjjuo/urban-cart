@@ -3,15 +3,16 @@ import "../Blog/Blog.css";
 import { blogs } from '../../assets/Api';
 import { IoMdSearch } from "react-icons/io";
 import BlogSkeleton from '../Skeleton/BlogSkeleton';
+import { motion } from 'framer-motion';
 
-const Blog = ({loading, setLoading}) => {
+const Blog = ({ loading, setLoading }) => {
     const [blogData, setBlogData] = useState(blogs)
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 2000);
-    
+
         // Cleanup function to clear the timer if the component unmounts
         return () => clearTimeout(timer);
     }, []);
@@ -25,21 +26,34 @@ const Blog = ({loading, setLoading}) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-9">
-                                {loading && <BlogSkeleton blog={3}/>}
+                                {loading && <BlogSkeleton blog={3} />}
                                 {blogData.map((data, index) => (
-                                    <div className="blog" key={index}>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 100 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        className="blog" key={index}>
                                         <div className="image">
                                             <img src={data.image} alt="" />
                                             <p>{data.date}</p>
                                         </div>
                                         <div className="details">
-                                            <h3>{data.title}</h3>
-                                            <p>{data.description}</p>
+                                            <motion.h3
+                                                initial={{ opacity: 0, y: 50 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                            >{data.title}</motion.h3>
+
+                                            <motion.p
+                                                initial={{ opacity: 0, y: 50 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                            >{data.description}</motion.p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
-                            
+
                             <div className="col-md-3">
                                 <div className="search-bar">
                                     <input type="text" placeholder='Search' /><IoMdSearch size={25} color='#999999' />

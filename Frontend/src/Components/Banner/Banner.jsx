@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../Banner/Banner.css"
 import Slider from "react-slick";
 import { banner } from "../../../src/assets/Api";
-import Button from 'react-bootstrap/Button';
+import { motion } from "framer-motion"
 
 const Banner = () => {
 
@@ -51,9 +51,28 @@ const Banner = () => {
             <div className='banner' key={index}>
               <img src={data.image} alt="" />
               <div className="contents">
-                <h3>{data.collection}</h3>
-                <h1>{data.item}</h1>
-                <Button>shop now</Button>
+
+                <motion.h3
+                  initial={{ opacity: 0, y: -50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ ease: "easeOut", duration: 0.6 }}
+                >{data.collection}</motion.h3>
+
+                <motion.h1
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ ease: "easeOut", duration: 0.6 }}
+                >{data.item}</motion.h1>
+
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{opacity: 1, scale: 1}}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.2,
+                    ease: "easeOut"
+                  }}
+                >shop now</motion.button>
               </div>
             </div>
           ))}

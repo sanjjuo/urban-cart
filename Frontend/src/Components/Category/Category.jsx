@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../Category/Category.css";
 import { category } from '../../assets/Api';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Category = () => {
     const [categoryData, setCategoryData] = useState(category)
@@ -10,19 +11,32 @@ const Category = () => {
             <section className="category-section">
                 <div className="container">
                     <div className="row">
-                    {categoryData.map((data, index) => (
-                        <div className="col-md-4" key={index}>
-                            <div className="category-card">
-                                <img src={data.image} alt="" />
-                                <div className="content">
-                                    <h4>{data.title}</h4>
-                                    <p>{data.season}</p>
-                                </div>
-                                <div className="shop-now-hover">
-                                    <Link>shop now</Link>
-                                </div>
+                        {categoryData.map((data, index) => (
+                            <div className="col-md-4" key={index}>
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    className="category-card">
+                                    <img src={data.image} alt="" />
+                                    <div className="content">
+                                        <motion.h4
+                                            initial={{ opacity: 0, y: -150 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                        >{data.title}</motion.h4>
+
+                                        <motion.p
+                                            initial={{ opacity: 0, y: 150 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                        >{data.season}</motion.p>
+                                    </div>
+                                    <div className="shop-now-hover">
+                                        <Link>shop now</Link>
+                                    </div>
+                                </motion.div>
                             </div>
-                        </div>
                         ))}
                     </div>
                 </div>

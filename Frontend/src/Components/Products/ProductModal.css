@@ -1,53 +1,67 @@
-.modal .modal-content{
+.modal .modal-content {
     border-radius: 0;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .modal .modal-header {
     border: none;
     padding: 20px 20px 0;
 }
+
 .modal-header .btn-close {
     box-shadow: none;
 }
-.modal .modal-body{
+
+.modal .modal-body {
     padding: 0 40px 40px;
 }
-.modal .modal-body .col-md-7{
+
+.modal .modal-body .col-md-7 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.modal .modal-body .image img{
+
+.modal .modal-body .image img {
     width: 100%;
     height: 380px;
     object-fit: cover;
 }
-.modal .modal-body .details h4{
+
+.modal .modal-body .details h4 {
     color: #666666;
     text-transform: capitalize;
     font-size: 24px;
     font-weight: 800;
 }
-.modal .modal-body .details h5{
+
+.modal .modal-body .details h5 {
     color: #999999;
     text-transform: capitalize;
     font-size: 16px;
     font-weight: 700;
 }
-.modal .modal-body .details h6{
+
+.modal .modal-body .details h6 {
     color: #333;
     text-transform: capitalize;
     font-size: 20px;
     font-weight: 700;
 }
-.modal .modal-body .details p{
+
+.modal .modal-body .details p {
     color: #666666;
     font-size: 15px;
     text-align: justify;
 }
-.modal .modal-body .quantitybtn-icons{
+
+.modal .modal-body .mobile-quantitybtn-icons {
+    display: none;
+}
+
+.modal .modal-body .quantitybtn-icons {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,12 +70,13 @@
     gap: 10px;
 }
 
-.modal .modal-body .quantitybtn-icons .quantity-btns{
+.modal .modal-body .quantitybtn-icons .quantity-btns {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.modal .modal-body .quantitybtn-icons .quantity-btns span{
+
+.modal .modal-body .quantitybtn-icons .quantity-btns span {
     font-size: 30px;
     padding: 8px;
     width: 40px;
@@ -75,11 +90,13 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
 }
-.modal .modal-body .quantitybtn-icons .quantity-btns span:hover{
+
+.modal .modal-body .quantitybtn-icons .quantity-btns span:hover {
     background-color: #717fe0;
     color: #fff;
 }
-.modal .modal-body .quantitybtn-icons .cart-btn button{
+
+.modal .modal-body .quantitybtn-icons .cart-btn button {
     background-color: #717fe0;
     border: none;
     width: 100%;
@@ -88,10 +105,12 @@
     align-items: center;
     gap: 5px;
 }
-.modal .modal-body .quantitybtn-icons .cart-btn button:hover{
+
+.modal .modal-body .quantitybtn-icons .cart-btn button:hover {
     background-color: #000;
 }
-.modal .modal-body .quantitybtn-icons .favourite{
+
+.modal .modal-body .quantitybtn-icons .favourite {
     background-color: #fff;
     color: #666666;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -104,11 +123,13 @@
     justify-content: center;
     cursor: pointer;
 }
-.modal .modal-body .quantitybtn-icons .favourite:hover{
+
+.modal .modal-body .quantitybtn-icons .favourite:hover {
     background-color: #717fe0;
     color: #fff;
 }
-.modal .modal-body .social-media-icons ul{
+
+.modal .modal-body .social-media-icons ul {
     display: flex;
     padding: 0;
     margin: 0;
@@ -118,8 +139,111 @@
     gap: 20px;
     margin-top: 20px;
 }
-.modal .modal-body .social-media-icons li{
+
+.modal .modal-body .social-media-icons li {
     font-size: 28px;
     color: #999999;
     cursor: pointer;
+}
+
+@media (min-width:320px) and (max-width: 480px) {
+    .modal .modal-body {
+        padding: 0 10px 10px;
+    }
+
+    .modal .modal-header {
+        border: none;
+        padding: 10px 0 0;
+    }
+    .modal-header .btn-close {
+       position: absolute;
+       right: 20px;
+       top: 20px;
+       z-index: 999;
+       font-size: 14px;
+    }
+
+    .modal .modal-body .details h4 {
+        font-size: 17px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .modal .modal-body .details h5 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .modal .modal-body .details h6 {
+        font-size: 17px;
+    }
+
+    .modal .modal-body .details p {
+        font-size: 14px;
+    }
+
+    .modal .modal-body .quantitybtn-icons {
+        display: none;
+    }
+
+    .modal .modal-body .mobile-quantitybtn-icons {
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-quantitybtn-icons .quantity-btns-favourite {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .quantity-btns-favourite .quantity-btns {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .quantity-btns-favourite .quantity-btns span {
+        font-size: 30px;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: #fff;
+        color: #666666;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 10px;
+    }
+
+    .quantity-btns-favourite .favourite {
+        background-color: #fff;
+        color: #666666;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .mobile-quantitybtn-icons .cart-btn {
+        margin-top: 20px;
+    }
+
+    .mobile-quantitybtn-icons .cart-btn button {
+        background-color: #717fe0;
+        border: none;
+        width: 100%;
+        padding: 8px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
 }

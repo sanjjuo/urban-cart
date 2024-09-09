@@ -27,16 +27,20 @@
     color: #777;
     border-bottom: 2px solid transparent;
     cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease;
 }
 
 .products-filter-search-part .products-filter li:hover {
     color: #333;
     border-bottom: 2px solid #333;
+    transform: scale(1.1);
 }
 
 .products-filter-search-part .products-filter li.active {
     color: #333;
     border-bottom: 2px solid #333;
+    transform: scale(1.1);
 }
 
 .products-filter-search-part .filter-search ul {
@@ -56,11 +60,16 @@
     align-items: center;
     gap: 5px;
     font-size: 17px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .products-filter-search-part .filter-search li:hover {
     background-color: #717fe0;
     color: #fff;
+    transform: scale(1.03);
+    border: none;
 }
 
 /* products-cards */
@@ -129,8 +138,6 @@
     right: 30px;
     padding: 0;
     list-style: none;
-    transform: translateY(200%);
-    transition: transform 0.9s ease;
 }
 
 .products-section .products-cards .card .image li {
@@ -143,12 +150,21 @@
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    margin-bottom: 10px;
     cursor: pointer;
+     transform: translateY(210px);
 }
 
-.products-section .products-cards .card .image:hover .icons {
-    transform: translateY(10%);
+.products-section .products-cards .card .image:hover li:first-child{
+    transform: translateY(20px);
+    transition: transform 0.7s ease;
+}
+.products-section .products-cards .card .image:hover li:nth-child(2){
+    transform: translateY(30px);
+    transition: transform 1s ease;
+}
+.products-section .products-cards .card .image:hover li:last-child{
+    transform: translateY(40px);
+    transition: transform 1.3s ease;
 }
 
 .products-section .products-cards .card .image li:hover {
@@ -178,20 +194,25 @@
     }
 
     .mobile-products-filter-search-part {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: block;
+        /* align-items: center; */
+        /* justify-content: space-between; */
     }
     .mobile-products-filter-search-part .filter-search ul{
         list-style: none;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 5px;
         align-items: center;
         padding: 0;
         margin: 0;
     }
+    .mobile-products-filter-search-part .filter-search li:first-child{
+        flex: 1;
+    }
     .mobile-products-filter-search-part .filter-search li{
-        border: 1px solid #777;
+        border: 1px solid #999999;
         padding: 5px 8px;
         color: #777;
         border-radius: 10px;
@@ -199,23 +220,58 @@
         align-items: center;
         font-size: 14px;
     }
-    .mobile-products-filter-search-part .menu-icon{
-        font-size: 30px;
-        color: #777;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .mobile-products-filter-search-part .filter-search li:last-child:hover{
+        color: #fff;
+        background-color: #717fe0;
+        border: 1px solid #717fe0;
     }
-    .offcanvas-body .category-items li{
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        transform: scale(1);
-        color: #777777;
-        transition: transform 0.3s ease;
+
+    /* offcanvas */
+
+    .offcanvas{
+        max-width: 65%;
     }
-    .offcanvas-body .category-items li:hover{
-        transform: scale(1.06);
+    .offcanvas-header .btn-close{
+        box-shadow: none;
+    }
+    .offcanvas .offcanvas-title {
+        font-size: 25px;
+        font-weight: 800;
         color: #333;
     }
+    .offcanvas .offcanvas-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .offcanvas .offcanvas-body h3{
+        font-size: 18px;
+        font-weight: 800;
+    }
+    .offcanvas .offcanvas-body .category-filter,
+    .offcanvas .offcanvas-body .price-filter,
+    .offcanvas .offcanvas-body .color-filter{
+        margin-bottom: 20px;
+    }
+    .offcanvas .offcanvas-body ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 40px;
+    }
+    .offcanvas .offcanvas-body li{
+        color: #666666;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-weight: 300;
+        font-size: 15px;
+        transform: scale(1);
+        transition: transform 0.3s ease;
+    }
+    .offcanvas .offcanvas-body li:hover{
+        color: #717fe0;
+        transform: scale(1.04);
+    }
+
 }

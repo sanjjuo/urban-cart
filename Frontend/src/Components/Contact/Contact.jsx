@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { IoLocationOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 import { BsEnvelope } from "react-icons/bs";
+import { motion } from 'framer-motion';
 
 const Contact = () => {
     return (
@@ -13,7 +14,15 @@ const Contact = () => {
                     <h1>Contact</h1>
                 </div>
                 <div className="container">
-                    <div className="contact-form-address">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.2,
+                            ease: "easeOut"
+                        }}
+                        className="contact-form-address">
                         <div className="contact-form">
                             <h1>send us a message</h1>
                             <form action="">
@@ -39,7 +48,7 @@ const Contact = () => {
                                     </div>
                                     <div className="details">
                                         <h3>Lets's Talk</h3>
-                                        <p style={{color:"#717fe0"}}>+1 800 1236879</p>
+                                        <p style={{ color: "#717fe0" }}>+1 800 1236879</p>
                                     </div>
                                 </li>
                                 <li>
@@ -48,12 +57,12 @@ const Contact = () => {
                                     </div>
                                     <div className="details">
                                         <h3>Sale Support</h3>
-                                        <p style={{color:"#717fe0"}}>contact@example.com</p>
+                                        <p style={{ color: "#717fe0" }}>contact@example.com</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </>
