@@ -85,7 +85,6 @@
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         display: block;
-        padding: 0 10px;
         height: 60px;
         align-content: center;
     }
@@ -93,6 +92,7 @@
         display: none;
     }
     .mobile-navbar-section .contents{
+        padding: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
