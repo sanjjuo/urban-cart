@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Banner/Banner.css"
 import Slider from "react-slick";
-import { banner } from "../../../src/assets/Api";
 import { motion } from "framer-motion"
+import axios from "axios"
 
 const Banner = () => {
 
-  const [bannerData, setBannerData] = useState(banner)
+  const [bannerData, setBannerData] = useState([])
+
+  useEffect(() => {
+    const fetchBanner = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/banner");
+        setBannerData(response.data)
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data", error)
+      }
+    }
+    fetchBanner()
+  }, [])
+
+
 
   const settings = {
     dots: false,
@@ -66,7 +81,7 @@ const Banner = () => {
 
                 <motion.button
                   initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{opacity: 1, scale: 1}}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{
                     duration: 0.8,
                     delay: 0.2,

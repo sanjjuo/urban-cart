@@ -4,12 +4,12 @@ import Banner from './Components/Banner/Banner'
 import Category from './Components/Category/Category';
 import Products from './Components/Products/Products';
 
-const Pages = () => {
+const Pages = ({loading, setLoading, addToCart}) => {
   return (
     <>
     <Banner/>
     <Category/>
-    <Products/>
+    <Products loading={loading} setLoading={setLoading} addToCart={addToCart}/>
     </>
   )
 }

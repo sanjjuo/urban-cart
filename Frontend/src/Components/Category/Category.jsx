@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../Category/Category.css";
-import { category } from '../../assets/Api';
+// import { category } from '../../assets/Api';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 const Category = () => {
-    const [categoryData, setCategoryData] = useState(category)
+    const [categoryData, setCategoryData] = useState([])
+
+    useEffect(() => {
+        const fetchCategory = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/category");
+                setCategoryData(response.data)
+                console.log(response.data);
+            } catch (error) {
+                console.log("Error fetching in data", error);
+                
+            }
+        }
+        fetchCategory()
+    }, [])
+
     return (
         <>
             <section className="category-section">
@@ -16,8 +32,9 @@ const Category = () => {
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    transition={{ duration: 1.5, ease: "easeOut" }}
                                     className="category-card">
+
                                     <img src={data.image} alt="" />
                                     <div className="content">
                                         <motion.h4

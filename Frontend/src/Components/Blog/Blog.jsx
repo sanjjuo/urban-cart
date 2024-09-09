@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import "../Blog/Blog.css";
-import { blogs } from '../../assets/Api';
 import { IoMdSearch } from "react-icons/io";
 import BlogSkeleton from '../Skeleton/BlogSkeleton';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 const Blog = ({ loading, setLoading }) => {
-    const [blogData, setBlogData] = useState(blogs)
+    const [blogData, setBlogData] = useState([])
 
     useEffect(() => {
+        const fetchBlog = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/blogs");
+                setBlogData(response.data)
+                console.log(response.data);
+
+            } catch (error) {
+                console.log("Error fetching data", error);
+
+            }
+        }
+        fetchBlog()
+
         const timer = setTimeout(() => {
             setLoading(false);
         }, 2000);
 
-        // Cleanup function to clear the timer if the component unmounts
         return () => clearTimeout(timer);
     }, []);
     return (

@@ -1,42 +1,48 @@
-export const banner = [
-    {
-        "image": "/images/banner1.jpg",
-        "collection": "Men Collection 2024",
-        "item": "NEW ARRIVALS"
-    },
-    {
-        "image": "/images/banner2.jpg",
-        "collection": "Women Collection 2024",
-        "item": "NEW SEASON"
-    },
-    {
-        "image": "/images/banner3.jpg",
-        "collection": "Men New-Season",
-        "item": "JACKETS & COATS"
-    }
-]
+{
+    "banner": [
+        {
+            "id": 1,
+            "image": "/images/banner1.jpg",
+            "collection": "Men Collection 2024",
+            "item": "NEW ARRIVALS"
+        },
+        {
+            "id": 2,
+            "image": "/images/banner2.jpg",
+            "collection": "Women Collection 2024",
+            "item": "NEW SEASON"
+        },
+        {
+            "id": 3,
+            "image": "/images/banner3.jpg",
+            "collection": "Men New-Season",
+            "item": "JACKETS & COATS"
+        }
+    ],
 
-export const category = [
-    {
-        "image": "/images/category1.jpg",
-        "title": "Women",
-        "season": "Spring 2024"
-    },
-    {
-        "image": "/images/category2.jpg",
-        "title": "Men",
-        "season": "Spring 2024"
-    },
-    {
-        "image": "/images/category3.jpg",
-        "title": "Accessories",
-        "season": "New Trend"
-    },
-]
+    "category": [
+        {
+            "id": 1,
+            "image": "/images/category1.jpg",
+            "title": "Women",
+            "season": "Spring 2024"
+        },
+        {
+            "id": 2,
+            "image": "/images/category2.jpg",
+            "title": "Men",
+            "season": "Spring 2024"
+        },
+        {
+            "id": 3,
+            "image": "/images/category3.jpg",
+            "title": "Accessories",
+            "season": "New Trend"
+        }
+    ],
 
+    "products": [
 
-export const products = [
-    // men
     {
         "id": 1,
         "image": "/images/men1.jpg",
@@ -110,7 +116,6 @@ export const products = [
         "description":"Discover a wide range of stylish clothing, watches, and shoes for both men and women. From trendy outfits to elegant timepieces and comfortable footwear, find the perfect accessories to elevate your fashion game. Stay chic and timeless with our curated collection for every occasion!"
     },
 
-    // women
 
     {
         "id": 10,
@@ -193,8 +198,6 @@ export const products = [
         "description":"Discover a wide range of stylish clothing, watches, and shoes for both men and women. From trendy outfits to elegant timepieces and comfortable footwear, find the perfect accessories to elevate your fashion game. Stay chic and timeless with our curated collection for every occasion!"
     },
 
-    // watch
-
     {
         "id": 20,
         "image": "/images/watch1.jpg",
@@ -212,7 +215,6 @@ export const products = [
         "description":"Discover a wide range of stylish clothing, watches, and shoes for both men and women. From trendy outfits to elegant timepieces and comfortable footwear, find the perfect accessories to elevate your fashion game. Stay chic and timeless with our curated collection for every occasion!"
     },
 
-    // shoes
 
     {
         "id": 22,
@@ -221,30 +223,30 @@ export const products = [
         "category": "shoes",
         "price": "1499",
         "description":"Discover a wide range of stylish clothing, watches, and shoes for both men and women. From trendy outfits to elegant timepieces and comfortable footwear, find the perfect accessories to elevate your fashion game. Stay chic and timeless with our curated collection for every occasion!"
-    },
-]
+    }
+    ],
 
-
-export const blogs = [
-    {
-        "id":1,
-        "image":"/images/winter.jpg",
-        "date":"22 Jan 2024",
-        "title":"8 Inspiring Ways to Wear Dresses in the Winter",
-        "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
-    },
-    {
-        "id":2,
-        "image":"/images/men.jpg",
-        "date":"18 Aug 2024",
-        "title":"The Great Big List of Men’s Gifts for the Holidays",
-        "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
-    },
-    {
-        "id":3,
-        "image":"/images/women.jpg",
-        "date":"08 Sep 2024",
-        "title":"5 Winter-to-Spring Fashion Trends to Try Now",
-        "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
-    },
-]
+    "blogs":[
+        {
+            "id":1,
+            "image":"/images/winter.jpg",
+            "date":"22 Jan 2024",
+            "title":"8 Inspiring Ways to Wear Dresses in the Winter",
+            "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
+        },
+        {
+            "id":2,
+            "image":"/images/men.jpg",
+            "date":"18 Aug 2024",
+            "title":"The Great Big List of Men’s Gifts for the Holidays",
+            "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
+        },
+        {
+            "id":3,
+            "image":"/images/women.jpg",
+            "date":"08 Sep 2024",
+            "title":"5 Winter-to-Spring Fashion Trends to Try Now",
+            "description":"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius"
+        }
+    ]
+}

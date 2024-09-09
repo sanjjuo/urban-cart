@@ -30,9 +30,9 @@
 .contact-section .contact-form-address {
     border: 1px solid #b2b2b2;
     margin-top: 50px;
-    padding: 0 20px;
     display: flex;
     justify-content: space-evenly;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* .contact-form */
@@ -46,7 +46,6 @@
 .contact-form-address .contact-form h1 {
     font-size: 30px;
     font-weight: 800;
-    text-transform: capitalize;
 }
 
 .contact-form-address .contact-form form {
@@ -63,6 +62,7 @@
     width: 100%;
     border-radius: 20px;
     color: #777;
+    font-weight: 300;
 }
 
 .contact-form form input:focus,
@@ -132,7 +132,6 @@
 @media (min-width:320px) and (max-width:480px) {
     .contact-section .contact-form-address {
         margin-top: 50px;
-        padding: 0 10px;
         display: flex;
         flex-direction: column;
     }

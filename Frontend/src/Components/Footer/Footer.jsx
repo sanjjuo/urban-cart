@@ -59,7 +59,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer-last-part">
-                        <p>Copyright ©2024 All rights reserved | Made with ❤️ by Colorlib & distributed by ThemeWagon</p>
+                        <p>Copyright &copy; {new Date().getFullYear()} All rights reserved | Made with ❤️ by Mohamed Sanjeed</p>
                     </div>
                 </div>
 

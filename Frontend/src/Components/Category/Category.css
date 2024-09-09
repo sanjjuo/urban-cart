@@ -56,6 +56,14 @@
 .category-card:hover .shop-now-hover a{
     transform: translateY(0);
 }
+.category-section .category-card:hover .content{
+    color: #fff !important;
+    z-index: 999;
+}
+.category-section .category-card:hover h4,
+.category-section .category-card:hover p{
+    color: #fff !important;
+}
 
 
 @media (min-width: 320px) and (max-width: 480px){

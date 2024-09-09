@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Offcanvas, Button } from 'react-bootstrap';
 import "../Navbar/Navbar.css";
 import { IoMdSearch } from "react-icons/io";
 import { RiShoppingCartFill } from "react-icons/ri";
@@ -10,9 +10,14 @@ import { FaBloggerB } from "react-icons/fa";
 import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { Link, useNavigate } from 'react-router-dom';
+import { HiMiniXMark } from "react-icons/hi2";
+import { BsArrowRightSquare } from "react-icons/bs";
+import { BsArrowLeftSquare } from "react-icons/bs";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
-const MyNavbar = () => {
+const MyNavbar = ({ size, cart, handleDecrease, handleIncrease, totalPrice }) => {
     const [navlink, setNavLink] = useState("home")
+    const [cartOffCanvas, setCartOffCanvas] = useState(false)
     const navigate = useNavigate()
 
     const handleLink = (path, link) => {
@@ -38,7 +43,7 @@ const MyNavbar = () => {
                             <Nav className="ms-auto nav2">
                                 <ul>
                                     <li><IoMdSearch /></li>
-                                    <li><RiShoppingCartFill /></li>
+                                    <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
                                     <li><AiOutlineHeart /></li>
                                 </ul>
                             </Nav>
@@ -46,6 +51,8 @@ const MyNavbar = () => {
                     </Container>
                 </Navbar>
             </section>
+
+            {/* mobile-navbar-section */}
 
             <section className="mobile-navbar-section">
                 <div className="contents">
@@ -55,12 +62,15 @@ const MyNavbar = () => {
                     <div className="icons">
                         <ul>
                             <li><IoMdSearch /></li>
-                            <li><RiShoppingCartFill /></li>
+                            <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
                             <li><AiOutlineHeart /></li>
                         </ul>
                     </div>
                 </div>
             </section >
+
+            {/* bottom-mobile-navbar-menu */}
+
             <section className="bottom-mobile-navbar-menu">
                 <ul>
                     <li onClick={() => handleLink("/", "home")} className={navlink === "home" ? "active" : ""}>
@@ -75,6 +85,40 @@ const MyNavbar = () => {
                         <PiPhoneCallFill size={23} />Contact</li>
                 </ul>
             </section>
+
+            <Offcanvas show={cartOffCanvas} onHide={() => setCartOffCanvas(false)} scroll={true}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>YOUR CART</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    {cart.map((product, index) => (
+                        <div className="added-items" key={index}>
+                            <div className="image">
+                                <img src={product.image} alt={product.title} />
+                            </div>
+                            <div className="details">
+                                <h4>{product.title}</h4>
+                                <ul>
+                                    <li onClick={() => handleDecrease(product.id)}><BsArrowLeftSquare /></li>
+                                    <li>{product.quantity}</li>
+                                    <li onClick={() => handleIncrease(product.id)}><BsArrowRightSquare /></li>
+                                </ul>
+                                <p>{product.quantity}<HiMiniXMark />₹{product.price} = ₹{product.quantity * product.price}</p>
+                                <div className="remove-icon">
+                                    <RiDeleteBin5Fill size={18}/>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                    <div className="total-btns">
+                        <div className="total"><h3>Total: <strong>Rs.{totalPrice}</strong></h3></div>
+                        <div className="buttons">
+                            <Button>VIEW CART</Button>
+                            <Button>CHECKOUT</Button>
+                        </div>
+                    </div>
+                </Offcanvas.Body>
+            </Offcanvas>
         </>
 
     )

@@ -24,7 +24,7 @@ const Contact = () => {
                         }}
                         className="contact-form-address">
                         <div className="contact-form">
-                            <h1>send us a message</h1>
+                            <h1>Send us a message!</h1>
                             <form action="">
                                 <input type="email" placeholder='Your Email Address' />
                                 <textarea name="textarea" id="" placeholder='How Can We Help?' rows={8}></textarea>
