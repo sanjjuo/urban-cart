@@ -109,6 +109,9 @@
 }
 
 @media (min-width:320px) and (max-width:480px){
+    .about-section{
+        overflow: hidden;
+    }
     .our-story-section p {
         font-size: 14px;
         max-width: 100%;
