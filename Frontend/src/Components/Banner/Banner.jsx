@@ -6,12 +6,14 @@ import axios from "axios"
 
 const Banner = () => {
 
+  const URL = import.meta.env.VITE_API_URL;
+  
   const [bannerData, setBannerData] = useState([])
 
   useEffect(() => {
     const fetchBanner = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/banner");
+        const response = await axios.get(`${URL}/banner`);
         setBannerData(response.data)
         console.log(response.data);
       } catch (error) {

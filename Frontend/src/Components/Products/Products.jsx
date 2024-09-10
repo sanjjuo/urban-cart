@@ -21,6 +21,8 @@ import axios from 'axios';
 
 
 const Products = ({ loading, setLoading, addToCart }) => {
+
+    const URL = import.meta.env.VITE_API_URL;
     const [productData, setProductData] = useState([]);
     const [filter, setFilter] = useState(productData)
     const [modal, setModal] = useState(false);
@@ -37,7 +39,7 @@ const Products = ({ loading, setLoading, addToCart }) => {
 
         const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/products");
+                const response = await axios.get(`${URL}/products`);
                 setProductData(response.data);
                 setFilter(response.data);
                 console.log(response.data);

@@ -6,12 +6,13 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 
 const Category = () => {
+    const URL = import.meta.env.VITE_API_URL;
     const [categoryData, setCategoryData] = useState([])
 
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/category");
+                const response = await axios.get(`${URL}/category`);
                 setCategoryData(response.data)
                 console.log(response.data);
             } catch (error) {

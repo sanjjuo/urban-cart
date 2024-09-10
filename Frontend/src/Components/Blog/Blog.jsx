@@ -6,12 +6,14 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 
 const Blog = ({ loading, setLoading }) => {
+
+    const URL = import.meta.env.VITE_API_URL;
     const [blogData, setBlogData] = useState([])
 
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/blogs");
+                const response = await axios.get(`${URL}/blogs`);
                 setBlogData(response.data)
                 console.log(response.data);
 
