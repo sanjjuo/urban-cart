@@ -23,6 +23,7 @@ import axios from 'axios';
 const Products = ({ loading, setLoading, addToCart }) => {
 
     const URL = import.meta.env.VITE_API_URL;
+    
     const [productData, setProductData] = useState([]);
     const [filter, setFilter] = useState(productData)
     const [modal, setModal] = useState(false);
