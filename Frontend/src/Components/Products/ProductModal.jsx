@@ -3,12 +3,11 @@ import Modal from 'react-bootstrap/Modal';
 import "../Products/ProductModal.css"
 import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { BsArrowLeftSquare } from "react-icons/bs";
-import { BsArrowRightSquare } from "react-icons/bs";
 import { FaFacebookSquare } from 'react-icons/fa';
 import { PiInstagramLogoFill } from 'react-icons/pi';
 import { FaSquarePinterest } from 'react-icons/fa6';
 import { Button } from "react-bootstrap";
+import { HiOutlineMinusCircle, HiOutlinePlusCircle } from 'react-icons/hi2';
 
 const ProductModal = (props) => {
 
@@ -40,9 +39,9 @@ const ProductModal = (props) => {
 
                             <div className="quantitybtn-icons">
                                 <div className="quantity-btns">
-                                    <span><BsArrowLeftSquare /></span>
+                                    <span><HiOutlineMinusCircle /></span>
                                     <span>0</span>
-                                    <span><BsArrowRightSquare /></span>
+                                    <span><HiOutlinePlusCircle /></span>
                                 </div>
                                 <div className="cart-btn">
                                     <Button>Add to Cart<RiShoppingCartFill /></Button>
@@ -57,9 +56,9 @@ const ProductModal = (props) => {
                             <div className="mobile-quantitybtn-icons">
                                 <div className="quantity-btns-favourite">
                                     <div className="quantity-btns">
-                                        <span><BsArrowLeftSquare /></span>
+                                        <span><HiOutlineMinusCircle /></span>
                                         <span>0</span>
-                                        <span><BsArrowRightSquare /></span>
+                                        <span><HiOutlinePlusCircle /></span>
                                     </div>
                                     <div className="favourite">
                                         <AiOutlineHeart size={30} />

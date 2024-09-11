@@ -9,12 +9,13 @@ import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import ScrollToTop from './ScrollToTop';
-import { BsFillCartCheckFill } from "react-icons/bs";
 import toast, { Toaster } from 'react-hot-toast';
+import Favourite from './Components/Favourite/Favourite'
 
 const AppRoutes = () => {
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
+    const [fav, setFav] = useState([]);
 
     //add to cart
 
@@ -27,18 +28,18 @@ const AppRoutes = () => {
         }
         // Add the item to the cart if it's not already present
         setCart([...cart, { ...item, quantity: 1 }]); // Add the item with initial quantity 1
-        toast.success("Item is added to the cart",{
-            duration:4000,
-            style:{
-                backgroundColor:"#ededed",
-                borderRadius:"0px",
+        toast.success("Item is added to the cart", {
+            duration: 4000,
+            style: {
+                backgroundColor: "#ededed",
+                borderRadius: "0px",
                 border: "2px solid #ededed"
             },
-            icon:'👏',
+            icon: '👏',
             ariaProps: {
                 role: 'status',
                 'aria-live': 'polite',
-              },
+            },
         })
     };
 
@@ -51,7 +52,7 @@ const AppRoutes = () => {
                 : product
         ));
     };
-    
+
     // quantity btn increase
 
     const handleIncrease = (id) => {
@@ -62,23 +63,47 @@ const AppRoutes = () => {
         ));
     };
 
+    // remove item from cart
+
+    const handleRemove = (deletingProduct) => {
+        const newCartItems = cart.filter(item => item.id !== deletingProduct.id)
+        setCart(newCartItems)
+    }
+
     // total price
 
-        const totalPrice = cart.reduce((total, product) => total + (product.quantity * product.price), 0);
+    const totalPrice = cart.reduce((total, product) => total + (product.quantity * product.price), 0);
+
+    // favourite product handle
+
+    const handleFavourite = (dataFav) => {
+        const isFavourite = fav.find(item => item.id === dataFav.id)
+        if (isFavourite) {
+            // If it's already a favorite, remove it
+            const updatedHeart = fav.filter(item => item.id !== dataFav.id);
+            setFav(updatedHeart);
+        } else {
+            // If it's not a favorite, add it
+            setFav([...fav, dataFav])
+        }
+        console.log(fav);
+
+    }
 
     return (
         <>
             <Router>
                 <SkeletonTheme baseColor='#ededed' highlightColor='#b2b2b2'>
                     <ScrollToTop />
-                    <Toaster/>
-                    <MyNavbar size={cart.length} cart={cart} handleDecrease={handleDecrease} handleIncrease={handleIncrease} totalPrice={totalPrice} />
+                    <Toaster />
+                    <MyNavbar size={cart.length} favSize={fav.length} cart={cart} handleRemove={handleRemove} handleDecrease={handleDecrease} handleIncrease={handleIncrease} totalPrice={totalPrice} />
                     <Routes>
-                        <Route path='/' element={<Pages loading={loading} setLoading={setLoading} addToCart={addToCart} />} />
-                        <Route path='/shop' element={<Products loading={loading} setLoading={setLoading} addToCart={addToCart} />} />
+                        <Route path='/' element={<Pages loading={loading} setLoading={setLoading} addToCart={addToCart} handleFavourite={handleFavourite} fav={fav}/>} />
+                        <Route path='/shop' element={<Products loading={loading} setLoading={setLoading} addToCart={addToCart} handleFavourite={handleFavourite} fav={fav}/>} />
                         <Route path='/blog' element={<Blog loading={loading} setLoading={setLoading} />} />
                         <Route path='/about' element={<About />} />
                         <Route path='/contact' element={<Contact />} />
+                        <Route path='/favourite' element={<Favourite fav={fav}/>} />
                     </Routes>
                     <Footer />
                 </SkeletonTheme>

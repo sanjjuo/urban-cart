@@ -20,18 +20,17 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 
 
-const Products = ({ loading, setLoading, addToCart }) => {
+const Products = ({ loading, setLoading, addToCart, handleFavourite, fav }) => {
 
     const URL = import.meta.env.VITE_API_URL;
-    
+
     const [productData, setProductData] = useState([]);
     const [filter, setFilter] = useState(productData)
     const [modal, setModal] = useState(false);
     const [details, setDetails] = useState({});
     const [link, setLink] = useState("all");
     const [show, setShow] = useState(false);
-    const [heart, setHeart] = useState(false)
-    const [shuffledProducts, setShuffledProducts] = useState([]);
+    const [error, setError] = useState(false);
 
     const location = useLocation();
     const isHomePage = location.pathname === "/";
@@ -43,15 +42,12 @@ const Products = ({ loading, setLoading, addToCart }) => {
                 const response = await axios.get(`${URL}/products`);
                 setProductData(response.data);
                 setFilter(response.data);
+                setLoading(false)
                 console.log(response.data);
-
-                // Shuffle products once and set state
-                const shuffled = response.data.sort(() => Math.random() - 0.5);
-                setShuffledProducts(shuffled);
 
             } catch (error) {
                 console.log("Error fetching in data", error);
-
+                setError(true)
             }
         }
         fetchProducts();
@@ -85,13 +81,6 @@ const Products = ({ loading, setLoading, addToCart }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // heart icon handle
-
-    const handleFavourite = (dataFav) => {
-        setHeart(dataFav,true)
-        console.log(dataFav);
-        
-    }
 
     return (
         <>
@@ -166,14 +155,21 @@ const Products = ({ loading, setLoading, addToCart }) => {
 
                     <div className="products-cards">
                         <div className="row">
-                            {shuffledProducts.length > 0 ? (
+                            {loading || error ? (
+                                // Render 8 skeletons, each in a separate col-md-3 div
+                                Array.from({ length: 22 }).map((_, index) => (
+                                    <div className="col-md-3" key={index}>
+                                        <CardSkeleton cards={1} />
+                                    </div>
+                                ))
+                            ) : (
+
                                 filter.map((data, index) => (
                                     <div className="col-md-3" key={index}>
-                                        {loading && <CardSkeleton cards={20} />}
                                         <motion.div
                                             initial={{ opacity: 0, y: 50 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                                            transition={{ duration: 0.5}}
                                             className="card">
                                             <div className="image">
                                                 <img src={data.image} alt={data.title} />
@@ -187,16 +183,19 @@ const Products = ({ loading, setLoading, addToCart }) => {
                                                     <h5>{data.title}</h5>
                                                     <p>Rs.{data.price}</p>
                                                 </div>
-                                                <div className="favourite" onClick={()=>handleFavourite(data)}>
-                                                    {!heart ? <GoHeart className="icon" /> :
-                                                        <GoHeartFill className="icon" />}
+                                                <div className="favourite" onClick={() => handleFavourite(data)}>
+                                                    {fav.some(item => item.id === data.id) ? (
+                                                        <GoHeartFill className="icon" color='#717fe0' />
+                                                    ) : (
+                                                        <GoHeart className="icon" />
+                                                    )}
+
                                                 </div>
                                             </div>
                                         </motion.div>
                                     </div>
                                 ))
-                            ) : (
-                                <p>No products available for this category.</p>
+
                             )}
                         </div>
                     </div>

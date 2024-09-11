@@ -69,10 +69,30 @@
     cursor: pointer;
 }
 
-.navbar .nav2 li:nth-child(2){
+.navbar .nav2 li:nth-child(2) {
     position: relative;
 }
-.navbar .nav2 li:nth-child(2) span{
+
+.navbar .nav2 li:nth-child(2) span {
+    position: absolute;
+    top: -2px;
+    right: -10px;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 99px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .nav2 li:last-child {
+    position: relative;
+}
+
+.navbar .nav2 li:last-child span {
     position: absolute;
     top: -2px;
     right: -10px;
@@ -95,12 +115,15 @@
 .offcanvas {
     padding: 40px;
 }
-.offcanvas .offcanvas-header{
+
+.offcanvas .offcanvas-header {
     padding: 0;
 }
-.offcanvas-header .btn-close:focus{
+
+.offcanvas-header .btn-close:focus {
     box-shadow: none;
 }
+
 .offcanvas .offcanvas-title {
     font-weight: 800;
 }
@@ -114,11 +137,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #999999;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .offcanvas-body .added-items .image {
-    width: 150px;
+    width: 100px;
     height: 100px;
 }
 
@@ -127,21 +152,15 @@
     height: 100%;
 }
 
-.offcanvas-body .added-items .details {
-    width: 100%;
-    position: relative;
-}
-.offcanvas-body .added-items .details .remove-icon{
-    position: absolute;
-    top: 0;
-    right: 0;
+.offcanvas-body .added-items .remove-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     color: red;
 }
-.offcanvas-body .added-items .details .remove-icon:hover{
+
+.offcanvas-body .added-items .details .remove-icon:hover {
     color: darkred;
 }
 
@@ -149,6 +168,10 @@
 .offcanvas-body .added-items .details h4 {
     font-size: 16px;
     font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
     text-transform: capitalize;
 }
 
@@ -168,7 +191,8 @@
     justify-content: space-between;
     width: 80px;
 }
-.offcanvas-body .added-items .details li{
+
+.offcanvas-body .added-items .details li {
     font-size: 25px;
     color: #666;
     display: flex;
@@ -176,40 +200,54 @@
     justify-content: center;
     cursor: pointer;
 }
-.offcanvas-body .added-items .details li:hover{
+
+.offcanvas-body .added-items .details li:hover {
     color: #717fe0;
 }
-.offcanvas-body .added-items .details li:nth-child(2){
+
+.offcanvas-body .added-items .details li:nth-child(2) {
     font-size: 18px;
 }
 
-.offcanvas-body .total-btns{
-    position: fixed;
-    bottom: 20px;
-    background-color: #fff;
-    padding: 20px 0;
+.offcanvas .total-btns {
+    padding: 20px 0 0;
 }
-.offcanvas-body .total-btns .total h3{
+
+.offcanvas .total-btns .total h3 {
     font-size: 20px;
     color: #333;
     font-weight: 300;
 }
-.offcanvas-body .total-btns .total strong{
+
+.offcanvas .total-btns .total strong {
     font-weight: 700;
 }
-.offcanvas-body .total-btns .buttons{
+
+.offcanvas .total-btns .buttons {
     display: flex;
-    margin-top: 20px;
-    gap: 10px;
+    margin-top: 30px !important;
+    gap: 5px;
 }
-.offcanvas-body .total-btns .buttons button{
+
+.offcanvas .total-btns .buttons button {
     background-color: #000;
     border: none;
     border-radius: 20px;
-    padding: 10px 30px;
+    padding: 8px 0;
+    width: 50%;
 }
-.offcanvas-body .total-btns .buttons button:hover{
+
+.offcanvas .total-btns .buttons button:hover {
     background-color: #717fe0;
+}
+
+.offcanvas-body .empty-cart {
+    display: flex;
+    flex-direction: column;
+    color: #666;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 
@@ -265,10 +303,39 @@
         font-size: 25px;
     }
 
-    .mobile-navbar-section .contents .icons li:nth-child(2){
+    .mobile-navbar-section .contents .icons li:nth-child(2) {
         position: relative;
     }
-    .mobile-navbar-section .contents .icons li:nth-child(2) span{
+
+    .mobile-navbar-section .contents .icons li:nth-child(2) span {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        font-size: 14px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 99px;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-navbar-section .contents .icons ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mobile-navbar-section .contents .icons li:last-child {
+        position: relative;
+    }
+
+    .mobile-navbar-section .contents .icons li:last-child span {
         position: absolute;
         top: -5px;
         right: -10px;
@@ -322,28 +389,35 @@
 
     /* offcanvas */
 
-    .offcanvas{
+    .offcanvas {
         padding: 20px;
         max-width: 80%;
     }
-    .offcanvas .offcanvas-title{
+
+    .offcanvas .offcanvas-title {
         font-size: 18px;
     }
-    .offcanvas .offcanvas-body{
+
+    .offcanvas .offcanvas-body {
         padding-top: 20px;
     }
+
     .offcanvas-body .added-items .details h4 {
         font-size: 16px;
         font-weight: 300;
+        width: 130px;
     }
+
     .offcanvas-body .total-btns .total h3 {
         font-size: 18px;
         color: #333;
         font-weight: 300;
     }
-    .offcanvas-body .total-btns .buttons{
+
+    .offcanvas-body .total-btns .buttons {
         gap: 5px;
     }
+
     .offcanvas-body .total-btns .buttons button {
         background-color: #000;
         border: none;

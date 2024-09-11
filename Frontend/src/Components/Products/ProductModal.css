@@ -78,7 +78,6 @@
 
 .modal .modal-body .quantitybtn-icons .quantity-btns span {
     font-size: 30px;
-    padding: 8px;
     width: 40px;
     height: 40px;
     display: flex;
@@ -89,6 +88,13 @@
     color: #666666;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
+}
+.modal .modal-body .quantitybtn-icons .quantity-btns span:nth-child(2){
+    font-size: 20px;
+}
+.modal .modal-body .quantitybtn-icons .quantity-btns span:nth-child(2):hover{
+    background-color: initial;
+    color: initial;
 }
 
 .modal .modal-body .quantitybtn-icons .quantity-btns span:hover {

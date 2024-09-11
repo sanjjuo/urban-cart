@@ -5,7 +5,7 @@
 .products-section h1 {
     font-weight: 800;
     color: #333;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 35px;
 }
 
@@ -206,7 +206,7 @@
     }
 
     .mobile-products-filter-search-part {
-        display: block;
+        display: block !important;
     }
 
     .mobile-products-filter-search-part .filter-search ul {
@@ -279,4 +279,18 @@
         transform: scale(1.04);
     }
 
+    /* product cards */
+
+    .products-section .products-cards .card .image .icons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 0;
+        list-style: none;
+    }
+    .products-section .products-cards .card .image li {
+        transform: initial;
+    }
+    
+    
 }

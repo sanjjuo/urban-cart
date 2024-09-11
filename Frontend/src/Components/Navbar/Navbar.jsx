@@ -11,11 +11,11 @@ import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { Link, useNavigate } from 'react-router-dom';
 import { HiMiniXMark } from "react-icons/hi2";
-import { BsArrowRightSquare } from "react-icons/bs";
-import { BsArrowLeftSquare } from "react-icons/bs";
+import { HiOutlinePlusCircle } from "react-icons/hi2";
+import { HiOutlineMinusCircle } from "react-icons/hi2";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
-const MyNavbar = ({ size, cart, handleDecrease, handleIncrease, totalPrice }) => {
+const MyNavbar = ({ size, favSize, cart, handleRemove, handleDecrease, handleIncrease, totalPrice }) => {
     const [navlink, setNavLink] = useState("home")
     const [cartOffCanvas, setCartOffCanvas] = useState(false)
     const navigate = useNavigate()
@@ -44,7 +44,7 @@ const MyNavbar = ({ size, cart, handleDecrease, handleIncrease, totalPrice }) =>
                                 <ul>
                                     <li><IoMdSearch /></li>
                                     <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
-                                    <li><AiOutlineHeart /></li>
+                                    <Link to="/favourite"><li><AiOutlineHeart /><span>{favSize}</span></li></Link>
                                 </ul>
                             </Nav>
                         </Navbar.Collapse>
@@ -63,7 +63,7 @@ const MyNavbar = ({ size, cart, handleDecrease, handleIncrease, totalPrice }) =>
                         <ul>
                             <li><IoMdSearch /></li>
                             <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
-                            <li><AiOutlineHeart /></li>
+                            <Link to="/favourite" style={{color:"inherit"}}><li><AiOutlineHeart /><span>{favSize}</span></li></Link>
                         </ul>
                     </div>
                 </div>
@@ -91,33 +91,39 @@ const MyNavbar = ({ size, cart, handleDecrease, handleIncrease, totalPrice }) =>
                     <Offcanvas.Title>YOUR CART</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {cart.map((product, index) => (
-                        <div className="added-items" key={index}>
-                            <div className="image">
-                                <img src={product.image} alt={product.title} />
-                            </div>
-                            <div className="details">
-                                <h4>{product.title}</h4>
-                                <ul>
-                                    <li onClick={() => handleDecrease(product.id)}><BsArrowLeftSquare /></li>
-                                    <li>{product.quantity}</li>
-                                    <li onClick={() => handleIncrease(product.id)}><BsArrowRightSquare /></li>
-                                </ul>
-                                <p>{product.quantity}<HiMiniXMark />₹{product.price} = ₹{product.quantity * product.price}</p>
-                                <div className="remove-icon">
-                                    <RiDeleteBin5Fill size={18}/>
+                    {cart.length > 0 ? (
+                        cart.map((product, index) => (
+                            <div className="added-items" key={index}>
+                                <div className="image">
+                                    <img src={product.image} alt={product.title} />
+                                </div>
+                                <div className="details">
+                                    <h4>{product.title}</h4>
+                                    <ul>
+                                        <li onClick={() => handleDecrease(product.id)}><HiOutlineMinusCircle /></li>
+                                        <li>{product.quantity}</li>
+                                        <li onClick={() => handleIncrease(product.id)}><HiOutlinePlusCircle /></li>
+                                    </ul>
+                                    <p>{product.quantity}<HiMiniXMark />₹{product.price} = ₹{product.quantity * product.price}</p>
+                                </div>
+                                <div className="remove-icon" onClick={() => handleRemove(product)}>
+                                    <RiDeleteBin5Fill size={18} />
                                 </div>
                             </div>
+                        ))
+                    ) : (
+                        <div className='empty-cart'>
+                            <img src="/images/sad.png" alt="" />Cart is empty!
                         </div>
-                    ))}
-                    <div className="total-btns">
-                        <div className="total"><h3>Total: <strong>Rs.{totalPrice}</strong></h3></div>
-                        <div className="buttons">
-                            <Button>VIEW CART</Button>
-                            <Button>CHECKOUT</Button>
-                        </div>
-                    </div>
+                    )}
                 </Offcanvas.Body>
+                <div className="total-btns">
+                    <div className="total"><h3>Total: <strong>Rs.{totalPrice}</strong></h3></div>
+                    <div className="buttons">
+                        <Button>VIEW CART</Button>
+                        <Button>CHECKOUT</Button>
+                    </div>
+                </div>
             </Offcanvas>
         </>
 
