@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container, Offcanvas, Button } from 'react-bootstrap';
 import "../Navbar/Navbar.css";
 import { IoMdSearch } from "react-icons/io";
-import { RiShoppingCartFill } from "react-icons/ri";
+import { RiShoppingCartLine } from "react-icons/ri";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
 import { SiShopify } from "react-icons/si";
@@ -18,6 +18,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 const MyNavbar = ({ size, favSize, cart, handleRemove, handleDecrease, handleIncrease, totalPrice }) => {
     const [navlink, setNavLink] = useState("home")
     const [cartOffCanvas, setCartOffCanvas] = useState(false)
+    const [isExpand, setIsExpand] = useState(false)
     const navigate = useNavigate()
 
     const handleLink = (path, link) => {
@@ -42,8 +43,13 @@ const MyNavbar = ({ size, favSize, cart, handleRemove, handleDecrease, handleInc
                             </Nav>
                             <Nav className="ms-auto nav2">
                                 <ul>
-                                    <li><IoMdSearch /></li>
-                                    <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
+                                    <li><IoMdSearch onClick={() => setIsExpand(!isExpand)} />
+                                        <input type="search"
+                                            name="search"
+                                            placeholder='Search Products'
+                                            className={`search-input ${isExpand ? 'expanded' : ''}`} />
+                                    </li>
+                                    <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartLine /><span>{size}</span></li>
                                     <Link to="/favourite"><li><AiOutlineHeart /><span>{favSize}</span></li></Link>
                                 </ul>
                             </Nav>
@@ -62,8 +68,8 @@ const MyNavbar = ({ size, favSize, cart, handleRemove, handleDecrease, handleInc
                     <div className="icons">
                         <ul>
                             <li><IoMdSearch /></li>
-                            <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartFill /><span>{size}</span></li>
-                            <Link to="/favourite" style={{color:"inherit"}}><li><AiOutlineHeart /><span>{favSize}</span></li></Link>
+                            <li onClick={() => setCartOffCanvas(true)}><RiShoppingCartLine /><span>{size}</span></li>
+                            <Link to="/favourite" style={{ color: "inherit" }}><li><AiOutlineHeart /><span>{favSize}</span></li></Link>
                         </ul>
                     </div>
                 </div>

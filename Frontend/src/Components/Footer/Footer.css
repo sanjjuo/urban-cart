@@ -66,6 +66,9 @@
 }
 
 @media (min-width:320px) and (max-width:480px){
+    .footer-section{
+        padding: 50px 0 100px;
+    }
     .footer-section .footer-parts {
         margin-bottom: 25px;
     }

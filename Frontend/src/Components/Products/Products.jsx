@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../Products/Products.css";
-import { FaFilter } from "react-icons/fa";
-import { IoMdSearch } from "react-icons/io";
+import { LiaFilterSolid } from "react-icons/lia";
+import { IoIosSearch } from "react-icons/io";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { RiShoppingCartFill } from "react-icons/ri";
@@ -99,8 +99,10 @@ const Products = ({ loading, setLoading, addToCart, handleFavourite, fav }) => {
                         </div>
                         <div className="filter-search">
                             <ul>
-                                <li><FaFilter size={16} />Filter</li>
-                                <li><IoMdSearch size={20} />Search</li>
+                                <li><IoIosSearch size={25} />
+                                    <input type="search" name="" id="" placeholder='Search Products' />
+                                </li>
+                                <li><LiaFilterSolid size={25} /> </li>
                             </ul>
                         </div>
                     </div>
@@ -110,8 +112,8 @@ const Products = ({ loading, setLoading, addToCart, handleFavourite, fav }) => {
                     <div className="mobile-products-filter-search-part">
                         <div className="filter-search">
                             <ul>
-                                <li onClick={handleShow}><FaFilter size={15} />Filter</li>
-                                <li><IoMdSearch size={20} />Search</li>
+                                <li onClick={handleShow}><LiaFilterSolid size={20} /></li>
+                                <li><IoIosSearch size={20} />Search</li>
                             </ul>
                         </div>
                         <Offcanvas show={show} onHide={handleClose} placement='end'>
@@ -169,7 +171,7 @@ const Products = ({ loading, setLoading, addToCart, handleFavourite, fav }) => {
                                         <motion.div
                                             initial={{ opacity: 0, y: 50 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5}}
+                                            transition={{ duration: 0.5 }}
                                             className="card">
                                             <div className="image">
                                                 <img src={data.image} alt={data.title} />
