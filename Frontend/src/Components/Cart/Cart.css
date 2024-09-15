@@ -1,0 +1,89 @@
+.cart-section{
+    padding: 100px 0;
+}
+.cart-section h1{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    font-weight: 800;
+    color: #333;
+    text-transform: capitalize;
+    font-size: 35px;
+}
+.cart-section table{
+    margin-top: 50px;
+}
+.cart-section table thead tr th{
+    padding: 20px;
+    background-color: #717fe0;
+    color: #fff;
+}
+.cart-section table tbody tr td{
+    padding: 20px;
+    vertical-align: middle;
+}
+.cart-section table tbody tr td:nth-child(2) {
+    width: 400px;
+}
+.cart-section table tbody tr td:last-child {
+    cursor: pointer;
+}
+.cart-section table tbody tr td:last-child:hover {
+    color: red;
+}
+.cart-section table tbody tr td span{
+    display: flex;
+    gap: 10px;
+}
+.cart-section table tbody tr td span img{
+    width: 100px;
+}
+.cart-section table tbody tr td span:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+.cart-section table tbody tr td span:nth-child(2) h4{
+    margin: 0;
+    color: #333;
+    font-weight: 300;
+    font-size: 20px;
+}
+.cart-section table tbody tr td span:nth-child(2) p {
+    margin: 0;
+    color: #999999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box; /* Ensures it behaves as a block-level element */
+    -webkit-line-clamp: 3; /* Limits the text to 3 lines */
+    -webkit-box-orient: vertical; /* Defines the orientation to be vertical */
+    white-space: normal; /* Allows the text to break onto multiple lines */
+    width: 300px; /* Adjust this based on the layout */
+}
+
+.cart-section table tbody tr td ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.cart-section table tbody tr td li{
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+}
+.cart-section table tbody tr td li:hover{
+    color: #717fe0;
+}
+.cart-section table tbody tr td li:nth-child(2){
+    font-size: 20px;
+    cursor: default;
+}
+.cart-section table tbody tr td li:nth-child(2):hover{
+    color: initial;
+}

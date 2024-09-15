@@ -11,6 +11,7 @@ import { SkeletonTheme } from 'react-loading-skeleton'
 import ScrollToTop from './ScrollToTop';
 import toast, { Toaster } from 'react-hot-toast';
 import Favourite from './Components/Favourite/Favourite'
+import Cart from './Components/Cart/Cart'
 
 const AppRoutes = () => {
     const [loading, setLoading] = useState(true);
@@ -104,6 +105,7 @@ const AppRoutes = () => {
                         <Route path='/about' element={<About />} />
                         <Route path='/contact' element={<Contact />} />
                         <Route path='/favourite' element={<Favourite fav={fav}/>} />
+                        <Route path='/cart' element={<Cart cart={cart} handleRemove={handleRemove} handleDecrease={handleDecrease} handleIncrease={handleIncrease} totalPrice={totalPrice}/>}/>
                     </Routes>
                     <Footer />
                 </SkeletonTheme>

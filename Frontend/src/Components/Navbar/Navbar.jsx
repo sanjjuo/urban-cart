@@ -126,8 +126,8 @@ const MyNavbar = ({ size, favSize, cart, handleRemove, handleDecrease, handleInc
                 <div className="total-btns">
                     <div className="total"><h3>Total: <strong>Rs.{totalPrice}</strong></h3></div>
                     <div className="buttons">
-                        <Button>VIEW CART</Button>
-                        <Button>CHECKOUT</Button>
+                        <Link to='/cart'><button>VIEW CART</button></Link>
+                        <Link><button>CHECKOUT</button></Link>
                     </div>
                 </div>
             </Offcanvas>

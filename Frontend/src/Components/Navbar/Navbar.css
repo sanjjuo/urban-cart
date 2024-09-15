@@ -241,15 +241,15 @@
     gap: 5px;
 }
 
-.offcanvas .total-btns .buttons button {
+.offcanvas .total-btns .buttons a button{
     background-color: #000;
+    color: #fff;
     border: none;
     border-radius: 20px;
-    padding: 8px 0;
-    width: 50%;
+    padding: 8px 30px;
 }
 
-.offcanvas .total-btns .buttons button:hover {
+.offcanvas .total-btns .buttons a button:hover {
     background-color: #717fe0;
 }
 
@@ -380,7 +380,7 @@
         cursor: pointer;
         transform: scale(0.9);
         transition: transform 0.3s ease;
-    }
+    }   
 
     .bottom-mobile-navbar-menu li.active {
         color: #717fe0;
@@ -425,6 +425,5 @@
         padding: 8px 12px;
         font-size: 15px;
     }
-
 
 }
