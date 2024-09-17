@@ -12,6 +12,7 @@ import ScrollToTop from './ScrollToTop';
 import toast, { Toaster } from 'react-hot-toast';
 import Favourite from './Components/Favourite/Favourite'
 import Cart from './Components/Cart/Cart'
+import Checkout from './Components/Checkout/Checkout'
 
 const AppRoutes = () => {
     const [loading, setLoading] = useState(true);
@@ -106,6 +107,7 @@ const AppRoutes = () => {
                         <Route path='/contact' element={<Contact />} />
                         <Route path='/favourite' element={<Favourite fav={fav}/>} />
                         <Route path='/cart' element={<Cart cart={cart} handleRemove={handleRemove} handleDecrease={handleDecrease} handleIncrease={handleIncrease} totalPrice={totalPrice}/>}/>
+                        <Route path='/checkout' element={<Checkout/>}/>
                     </Routes>
                     <Footer />
                 </SkeletonTheme>

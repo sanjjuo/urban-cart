@@ -1,0 +1,83 @@
+.checkout-section{
+    padding: 100px 0;
+}
+.checkout-section h1{
+    text-align: center;
+    margin: 0;
+    font-weight: 800;
+    color: #333;
+    text-transform: capitalize;
+    font-size: 35px;
+}
+.checkout-section form {
+    margin-top: 50px;
+}
+.checkout-section .multi-field{
+    display: flex;
+    gap: 10px;
+}
+.checkout-section input{
+    width: 100%;
+    background-color: #ededed;
+    border: none;
+    color: #333;
+    font-weight: 300;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.checkout-section input::placeholder{
+    color: #999999;
+    font-weight: 300;
+    font-size: 15px;
+}
+.checkout-section input:focus{
+    outline: none;
+}
+
+/* payment-part */
+
+.checkout-section .payment-part{
+    margin-top: 50px;
+}
+.checkout-section .payment-part h3{
+    font-size: 23px;
+    font-weight: 600;
+}
+.checkout-section .payment-part ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.checkout-section .payment-part ul li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 30px;
+    font-size: 18px;
+}
+.checkout-section .payment-part ul li span:first-child{
+    font-weight: 300;
+    font-size: 15px;
+}
+.checkout-section .payment-part ul li span:last-child{
+    font-weight: 700;
+}
+.checkout-section .payment-part button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    .checkout-section h1 {
+        text-align: center;
+        font-size: 25px;
+        margin: 0;
+    }
+}

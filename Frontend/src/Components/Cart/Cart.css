@@ -1,7 +1,8 @@
-.cart-section{
+.cart-section {
     padding: 100px 0;
 }
-.cart-section h1{
+
+.cart-section h1 {
     text-align: center;
     display: flex;
     align-items: center;
@@ -13,57 +14,73 @@
     text-transform: capitalize;
     font-size: 35px;
 }
-.cart-section table{
+
+.cart-section table {
     margin-top: 50px;
 }
-.cart-section table thead tr th{
+
+.cart-section table thead tr th {
     padding: 20px;
     background-color: #717fe0;
     color: #fff;
 }
-.cart-section table tbody tr td{
+
+.cart-section table tbody tr td {
     padding: 20px;
     vertical-align: middle;
 }
+
 .cart-section table tbody tr td:nth-child(2) {
     width: 400px;
 }
+
 .cart-section table tbody tr td:last-child {
     cursor: pointer;
 }
+
 .cart-section table tbody tr td:last-child:hover {
     color: red;
 }
-.cart-section table tbody tr td span{
+
+.cart-section table tbody tr td span {
     display: flex;
     gap: 10px;
 }
-.cart-section table tbody tr td span img{
+
+.cart-section table tbody tr td span img {
     width: 100px;
 }
-.cart-section table tbody tr td span:nth-child(2){
+
+.cart-section table tbody tr td span:nth-child(2) {
     display: flex;
     flex-direction: column;
 }
-.cart-section table tbody tr td span:nth-child(2) h4{
+
+.cart-section table tbody tr td span:nth-child(2) h4 {
     margin: 0;
     color: #333;
     font-weight: 300;
     font-size: 20px;
 }
+
 .cart-section table tbody tr td span:nth-child(2) p {
     margin: 0;
     color: #999999;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box; /* Ensures it behaves as a block-level element */
-    -webkit-line-clamp: 3; /* Limits the text to 3 lines */
-    -webkit-box-orient: vertical; /* Defines the orientation to be vertical */
-    white-space: normal; /* Allows the text to break onto multiple lines */
-    width: 300px; /* Adjust this based on the layout */
+    display: -webkit-box;
+    /* Ensures it behaves as a block-level element */
+    -webkit-line-clamp: 3;
+    /* Limits the text to 3 lines */
+    -webkit-box-orient: vertical;
+    /* Defines the orientation to be vertical */
+    white-space: normal;
+    /* Allows the text to break onto multiple lines */
+    width: 300px;
+    /* Adjust this based on the layout */
 }
 
-.cart-section table tbody tr td ul{
+.cart-section table tbody tr td ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -72,18 +89,160 @@
     justify-content: center;
     gap: 20px;
 }
-.cart-section table tbody tr td li{
+
+.cart-section table tbody tr td li {
     font-size: 30px;
     color: #333;
     cursor: pointer;
 }
-.cart-section table tbody tr td li:hover{
+
+.cart-section table tbody tr td li:hover {
     color: #717fe0;
 }
-.cart-section table tbody tr td li:nth-child(2){
+
+.cart-section table tbody tr td li:nth-child(2) {
     font-size: 20px;
     cursor: default;
 }
-.cart-section table tbody tr td li:nth-child(2):hover{
+
+.cart-section table tbody tr td li:nth-child(2):hover {
     color: initial;
+}
+
+.mobile-cart-section {
+    display: none;
+}
+
+/* mobile responsive */
+
+@media (min-width:320px) and (max-width:480px) {
+    .cart-section {
+        display: none;
+    }
+
+    .mobile-cart-section {
+        display: block;
+        padding: 100px 10px 50px;
+    }
+
+    .mobile-cart-section h1 {
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    .mobile-cart-section .cart-items {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        border: 1px solid #ededed;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-cart-section .cart-items .image {
+        width: 180px;
+        height: 130px;
+    }
+
+    .mobile-cart-section .cart-items .image img {
+        width: 100%;
+        height: 100%;
+    }
+    .mobile-cart-section .cart-items .details{
+        padding: 10px 5px;
+        position: relative;
+        width: 100%;
+    }
+    .mobile-cart-section .cart-items .details .icon{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .mobile-cart-section .cart-items .details h4 {
+        font-size: 17px;
+        font-weight: 300;
+        color: #333;
+        margin: 0;
+        text-transform: capitalize;
+        width: 190px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .mobile-cart-section .cart-items .details h5 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #999999;
+        margin: 0;
+    }
+
+    .mobile-cart-section .cart-items .details p {
+        color: #999999;
+        font-weight: 300;
+        font-size: 15px;
+        margin: 0;
+        text-transform: capitalize;
+    }
+
+    .mobile-cart-section .cart-items .details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mobile-cart-section .cart-items .details li {
+        font-size: 25px;
+        color: #333;
+    }
+    .mobile-cart-section .cart-items .details li:nth-child(2){
+        font-size: 18px;
+    }
+    .mobile-cart-section .cart-items .details .quantity-price{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    /* total-section */
+
+    .mobile-cart-section .total-section{
+        margin-top: 20px;
+    }
+    .mobile-cart-section .total-section ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile-cart-section .total-section li{
+        font-weight: 400;
+    }
+    .mobile-cart-section .total-section li:last-child{
+        font-weight: 700;
+    }
+    .mobile-cart-section .total-section button{
+        background-color: #000;
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 7px;
+        border-radius: 20px;
+        margin: 30px 0;
+    }
+    .mobile-cart-section .total-section a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: #333;
+        text-transform: capitalize;
+    }
 }
